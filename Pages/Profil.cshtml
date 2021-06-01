@@ -1,0 +1,42 @@
+﻿@page
+@model Ulubione.Pages.ProfilModel
+@{
+}
+<h1>Profil użytkownika</h1>
+<div class="col-12 border p-3 mt-3">
+    <form method="post">
+        <table class="table table-striped border">
+            <tr class="table-secondary">
+                <th>
+                    @Html.DisplayNameFor(model => model.Przepisy[0].Nazwa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Przepisy[0].ListaSkladnikow)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Przepisy[0].Opis)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Przepisy[0].Data)
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model.Przepisy)
+            {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nazwa)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ListaSkladnikow)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Opis)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Data)
+    </td>
+</tr>            }
+        </table>
+    </form>
+</div>

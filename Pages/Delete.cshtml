@@ -1,0 +1,45 @@
+﻿@page
+@model Ulubione.Pages.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>USUN</h1>
+
+<h3>Czy na pewno chcesz usunac ten przepis ?</h3>
+<div>
+    <h4>Class</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Przepis.Nazwa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Przepis.Nazwa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Przepis.ListaSkladnikow)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Przepis.ListaSkladnikow)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Przepis.Opis)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Przepis.Opis)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Przepis.Data)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Przepis.Data)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Przepis.PrzepisId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

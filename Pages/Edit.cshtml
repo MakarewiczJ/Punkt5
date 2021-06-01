@@ -1,0 +1,48 @@
+﻿@page
+@model Ulubione.Pages.EditModel
+@{
+}
+
+<h1>EDYTUJ</h1>
+
+<h4>Przepis</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Przepis.PrzepisId" />
+            <div class="form-group">
+                <label asp-for="Przepis.Nazwa" class="control-label"></label>
+                <input asp-for="Przepis.Nazwa" class="form-control" />
+                <span asp-validation-for="Przepis.Nazwa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Przepis.ListaSkladnikow" class="control-label"></label>
+                <input asp-for="Przepis.ListaSkladnikow" class="form-control" />
+                <span asp-validation-for="Przepis.ListaSkladnikow" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Przepis.Opis" class="control-label"></label>
+                <input asp-for="Przepis.Opis" class="form-control" />
+                <span asp-validation-for="Przepis.Opis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Przepis.Data" class="control-label"></label>
+                <input asp-for="Przepis.Data" class="form-control" />
+                <span asp-validation-for="Przepis.Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

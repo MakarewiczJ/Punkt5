@@ -1,0 +1,47 @@
+﻿@*@page
+    @model Ulubione.Pages.UlubionePrzepisyModel
+    @{
+    }
+    <div class="col-12 border p-3 mt-3">
+        <form method="post">
+            <table class="table table-striped border">
+                <tr class="table-secondary">
+                    <th>
+                        @Html.DisplayNameFor(model => model.Przepis.Nazwa)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Przepis.ListaSkladnikow)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Przepis.Opis)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Przepis.Data)
+                    </th>
+                    <th>
+                        <label>Użytkownik:</label>
+                    </th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model.Lista)
+                {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UlubionePrzepisy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UName)
+        </td>
+    </tr>            }
+            </table>
+        </form>
+    </div>*@

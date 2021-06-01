@@ -1,0 +1,63 @@
+﻿@page
+@model IndexModel
+@{ ViewData["Title"] = "Home page"; }
+
+<h1>Lista Przepisow:</h1>
+<form>
+    <div class="col-auto input-group mb-3">
+        <input class="form-control" type="text" asp-for="TekstWyszukiwania" placeholder="Nazwa użytkownika lub przepisu" aria-label="Nazwa użytkownika lub przepisu" aria-describedby="button-addon2" />
+        <input class="btn btn-outline-secondary" type="submit" id="button-addon2" value="Wyszukaj" />
+    </div>
+</form>
+<div class="col-12 border p-3 mt-3">
+    <form method="post">
+        <table class="table table-striped border">
+            <tr class="table-secondary">
+                    <th>
+                        @Html.DisplayNameFor(model => model.Przepisy[0].Nazwa)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Przepisy[0].ListaSkladnikow)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Przepisy[0].Opis)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Przepisy[0].Data)
+                    </th>
+                    <th>
+                        <label>Użytkownik:</label>
+                    </th>
+                    <th></th>
+            </tr>
+           @foreach (var item in Model.Przepisy)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListaSkladnikow)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                <a asp-page="/Profil" asp-route-id="@item.UName">@Html.DisplayFor(modelItem => item.UName)</a>
+            </td>
+            @*<td>
+                <button method="post" asp-page-handler="Ulub" asp-route-id="@item.PrzepisId" type="submit" class="btn btn-primary mb-3">Dodaj do ulubionych</button>
+            </td>*@
+        </tr>
+            }
+        </table>
+    </form>
+</div>
+<form method="post">
+    <div class="m-2">
+        <button method="post" type="submit" class="btn btn-primary mb-3">Dodaj Przepis</button>
+    </div>
+</form>

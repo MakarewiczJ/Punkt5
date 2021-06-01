@@ -1,0 +1,33 @@
+﻿@page
+@model Ulubione.Pages.DodawaniePrzepisuModel
+@{
+}
+<div class="text-center">
+    <h1 class="display-4">Dodaj swoj przpis:</h1>
+
+
+    <form method="post">
+
+        <div class="row">
+            <div class="col">
+                <label asp-for="Przepis.Nazwa"></label>
+                <input asp-for="Przepis.Nazwa" placeholder="Nazwa" /><br />
+            </div>
+            <div class="col">
+                <label asp-for="Przepis.ListaSkladnikow"></label>
+                <input asp-for="Przepis.ListaSkladnikow" placeholder="Lista skladnikow" /><br />
+            </div>
+            <div class="col">
+                <label asp-for="Przepis.Opis"></label>
+                <input asp-for="Przepis.Opis" placeholder="Opis" /><br />
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Dodaj przepis</button>
+        </div>
+    </form>
+
+    <span asp-validation-for="Przepis.Nazwa" class="text-danger"></span> </br>
+    <span asp-validation-for="Przepis.ListaSkladnikow" class="text-danger"></span> </br>
+    <span asp-validation-for="Przepis.Opis" class="text-danger"></span> </br>
+</div>
